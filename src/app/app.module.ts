@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
+import {ProductListComponentModule} from "./components/product-list/product-list.component-module";
+import {HomePageComponentModule} from "./components/home-page/home-page.component-module";
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,12 @@ import { HttpClientModule } from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductListComponentModule,
+    HomePageComponentModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
