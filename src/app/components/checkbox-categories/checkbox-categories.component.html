@@ -1,0 +1,14 @@
+<div > </div>
+
+<mat-card>
+  <mat-card-title>
+Categories list
+  </mat-card-title>
+  <mat-card-content>
+    <section class="example-section" >
+      <mat-checkbox class="example-margin" *ngFor="let categories of categories$| async">  {{categories}}</mat-checkbox>
+
+
+</section>
+  </mat-card-content>
+</mat-card>

@@ -5,6 +5,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CryptoChipsComponent } from './components/crypto-chips/crypto-chips.component';
 import { HolidaysComponent } from './components/holidays/holidays.component';
+import { CheckboxCategoriesComponent } from './components/checkbox-categories/checkbox-categories.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -14,13 +15,15 @@ import { CryptoChipsComponentModule } from './components/crypto-chips/crypto-chi
 import { CryptoChipsServiceModule } from './services/crypto-chips.service-module';
 import { HolidaysComponentModule } from './components/holidays/holidays.component-module';
 import { HolidaysServiceModule } from './services/holidays.service-module';
+import { CheckboxCategoriesComponentModule } from './components/checkbox-categories/checkbox-categories.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{ path: 'products', component: ProductListComponent },
     { path: '', component: HomePageComponent },
     { path: 'categories', component: CategoriesComponent },
     { path: 'crypto-chips', component: CryptoChipsComponent },
-    { path: 'holidays', component: HolidaysComponent }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule],
+    { path: 'holidays', component: HolidaysComponent },
+    { path: 'checkbox', component: CheckboxCategoriesComponent }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxCategoriesComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
