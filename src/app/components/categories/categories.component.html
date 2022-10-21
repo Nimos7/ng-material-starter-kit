@@ -1,15 +1,13 @@
-<div  *ngFor="let categories of categories$| async">
-  {{categories}}
-</div>
+
 <mat-card >
   <mat-card-title>
 Select Category
 </mat-card-title>
 
-  <mat-card-content >
+  <mat-card-content  *ngFor="let categories of categories$| async">
     <mat-selection-list>
       <mat-list-option >
-
+        {{categories}}
       </mat-list-option>
     </mat-selection-list>
 

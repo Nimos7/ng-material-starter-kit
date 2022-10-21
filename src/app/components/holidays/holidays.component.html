@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+Public Holidays
+  </mat-card-title>
+  <mat-card-content>
+
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>select holidays</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let holidays of holidays$ | async" [value]="holidays.valueOf" >
+          {{holidays.localName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+  </mat-card-content>
+</mat-card>
