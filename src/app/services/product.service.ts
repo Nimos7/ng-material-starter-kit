@@ -12,6 +12,7 @@ export class ProductService {
     return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products');
   }
 
-
-
+  create(product:Omit<ProductModel, 'id'>): Observable<ProductModel> {
+    return this._httpClient.post<ProductModel>("https://fakestoreapi.com/products",product );
+  }
 }
