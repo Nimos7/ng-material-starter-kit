@@ -4,15 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ProductFormComponent } from './product-form.component';
-import {MatSelectModule} from "@angular/material/select";
+import { UserLoginComponent } from './user-login.component';
 import {RouterLinkWithHref} from "@angular/router";
 
 @NgModule({
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, CommonModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, RouterLinkWithHref],
-  declarations: [ProductFormComponent],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, CommonModule, MatButtonModule, RouterLinkWithHref],
+  declarations: [UserLoginComponent],
   providers: [],
-  exports: [ProductFormComponent]
+  exports: [UserLoginComponent]
 })
-export class ProductFormComponentModule {
+export class UserLoginComponentModule {
 }
