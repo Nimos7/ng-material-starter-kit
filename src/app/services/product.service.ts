@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ProductModel } from '../models/product.model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map, Observable} from 'rxjs';
+import {ProductModel} from '../models/product.model';
+import {mapTo} from 'rxjs/operators'
 
 @Injectable()
 export class ProductService {
@@ -13,10 +14,9 @@ export class ProductService {
   }
 
 
-  create(product:Omit<ProductModel, 'id'>): Observable<ProductModel> {
-    return this._httpClient.post<ProductModel>("https://fakestoreapi.com/products",product );
+  create(product: Partial<ProductModel>): Observable<void> {
+    return this._httpClient.post<ProductModel>("https://fakestoreapi.com/products", product).pipe(mapTo(void 0))
   }
-
 
 
 }

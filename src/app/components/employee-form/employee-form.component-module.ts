@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { EmployeeFormComponent } from './employee-form.component';
+import {NgModule} from '@angular/core';
+import {EmployeeFormComponent} from './employee-form.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
 import {RouterLinkWithHref} from "@angular/router";
 
 @NgModule({
-  imports: [ReactiveFormsModule, CommonModule, RouterLinkWithHref, MatFormFieldModule],
+  imports: [
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    RouterLinkWithHref
+  ],
   declarations: [EmployeeFormComponent],
   providers: [],
   exports: [EmployeeFormComponent]
