@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {ProductModel} from '../models/product.model';
-import {mapTo} from 'rxjs/operators'
 
 @Injectable()
 export class ProductService {
@@ -14,9 +14,11 @@ export class ProductService {
   }
 
 
-  create(product: Partial<ProductModel>): Observable<void> {
-    return this._httpClient.post<ProductModel>("https://fakestoreapi.com/products", product).pipe(mapTo(void 0))
+  create(id: Partial<ProductModel>): Observable<void> {
+    return this._httpClient.post<ProductModel>('https://fakestoreapi.com/products', id).pipe(map(_ => void 0))
   }
 
-
+  getOne(id: string): Observable<ProductModel> {
+    return this._httpClient.get<ProductModel>(`https://fakestoreapi.com/products/${id}`);
+  }
 }

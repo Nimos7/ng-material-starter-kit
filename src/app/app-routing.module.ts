@@ -10,7 +10,7 @@ import {MenuCategoriesComponent} from './components/menu-categories/menu-categor
 import {UserLoginComponent} from './components/user-login/user-login.component';
 import {ProductFormComponent} from './components/product-form/product-form.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
-import {EmployeeFormComponent} from './components/employee-form/employee-form.component';
+import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {ProductListComponentModule} from './components/product-list/product-list.component-module';
 import {ProductServiceModule} from './services/product.service-module';
 import {HomePageComponentModule} from './components/home-page/home-page.component-module';
@@ -29,25 +29,28 @@ import {ProductFormComponentModule} from './components/product-form/product-form
 import {RegisterFormComponentModule} from './components/register-form/register-form.component-module';
 import {RegisterFormServiceModule} from './services/register-form.service-module';
 import {EmployeeFormComponentModule} from './components/employee-form/employee-form.component-module';
+import {ProductDetailComponentModule} from './components/product-detail/product-detail.component-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{path: 'products', component: ProductListComponent},
-    {path: '', component: HomePageComponent}, {
-      path: 'categories',
-      component: CategoriesComponent
-    }, {path: 'crypto-chips', component: CryptoChipsComponent}, {
-      path: 'holidays',
-      component: HolidaysComponent
-    }, {path: 'checkbox', component: CheckboxCategoriesComponent}, {
-      path: 'categories-menu',
-      component: MenuCategoriesComponent
-    }, {path: 'user-login', component: UserLoginComponent}, {
-      path: 'create-product',
-      component: ProductFormComponent
-    }, {path: 'register-form', component: RegisterFormComponent}, {
-      path: 'employee-form',
-      component: EmployeeFormComponent
-    }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxCategoriesComponentModule, MenuCategoriesComponentModule, EmployeeServiceModule, UserLoginComponentModule, UserLoginServiceModule, ProductFormComponentModule, RegisterFormComponentModule, RegisterFormServiceModule, EmployeeFormComponentModule],
+  imports: [RouterModule.forRoot([{path: 'products', component: ProductListComponent}, {
+    path: '',
+    component: HomePageComponent
+  }, {path: 'categories', component: CategoriesComponent}, {
+    path: 'crypto-chips',
+    component: CryptoChipsComponent
+  }, {path: 'holidays', component: HolidaysComponent}, {
+    path: 'checkbox',
+    component: CheckboxCategoriesComponent
+  }, {path: 'categories-menu', component: MenuCategoriesComponent}, {
+    path: 'user-login',
+    component: UserLoginComponent
+  }, {path: 'create-product', component: ProductFormComponent}, {
+    path: 'register-form',
+    component: RegisterFormComponent
+  }, {
+    path: 'product/:id',
+    component: ProductDetailComponent
+  }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxCategoriesComponentModule, MenuCategoriesComponentModule, EmployeeServiceModule, UserLoginComponentModule, UserLoginServiceModule, ProductFormComponentModule, RegisterFormComponentModule, RegisterFormServiceModule, EmployeeFormComponentModule, ProductDetailComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
