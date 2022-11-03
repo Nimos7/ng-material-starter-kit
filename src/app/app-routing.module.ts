@@ -11,6 +11,7 @@ import {UserLoginComponent} from './components/user-login/user-login.component';
 import {ProductFormComponent} from './components/product-form/product-form.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import {CatFactComponent} from './components/cat-fact/cat-fact.component';
 import {ProductListComponentModule} from './components/product-list/product-list.component-module';
 import {ProductServiceModule} from './services/product.service-module';
 import {HomePageComponentModule} from './components/home-page/home-page.component-module';
@@ -30,6 +31,8 @@ import {RegisterFormComponentModule} from './components/register-form/register-f
 import {RegisterFormServiceModule} from './services/register-form.service-module';
 import {EmployeeFormComponentModule} from './components/employee-form/employee-form.component-module';
 import {ProductDetailComponentModule} from './components/product-detail/product-detail.component-module';
+import {CatFactComponentModule} from './components/cat-fact/cat-fact.component-module';
+import {CatFactServiceModule} from './services/cat-fact.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{path: 'products', component: ProductListComponent}, {
@@ -47,10 +50,10 @@ import {ProductDetailComponentModule} from './components/product-detail/product-
   }, {path: 'create-product', component: ProductFormComponent}, {
     path: 'register-form',
     component: RegisterFormComponent
-  }, {
-    path: 'product/:id',
-    component: ProductDetailComponent
-  }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxCategoriesComponentModule, MenuCategoriesComponentModule, EmployeeServiceModule, UserLoginComponentModule, UserLoginServiceModule, ProductFormComponentModule, RegisterFormComponentModule, RegisterFormServiceModule, EmployeeFormComponentModule, ProductDetailComponentModule],
+  }, {path: 'product/:id', component: ProductDetailComponent}, {
+    path: 'cat-facts',
+    component: CatFactComponent
+  }]), ProductListComponentModule, ProductServiceModule, HomePageComponentModule, CategoriesComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoChipsServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxCategoriesComponentModule, MenuCategoriesComponentModule, EmployeeServiceModule, UserLoginComponentModule, UserLoginServiceModule, ProductFormComponentModule, RegisterFormComponentModule, RegisterFormServiceModule, EmployeeFormComponentModule, ProductDetailComponentModule, CatFactComponentModule, CatFactServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

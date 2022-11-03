@@ -1,0 +1,7 @@
+<mat-card>
+  <mat-card-title>Cat Facts</mat-card-title>
+  <mat-card-content>
+    <ng-container *ngIf="facts$ | async as item">{{ item.fact }}</ng-container>
+  </mat-card-content>
+</mat-card>
+
