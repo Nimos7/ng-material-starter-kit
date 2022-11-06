@@ -1,0 +1,13 @@
+<mat-card *ngIf="user$ | async as item">
+  <mat-card-title>
+    User details:
+  </mat-card-title>
+  <mat-card-content>
+    <h2> {{item.name.firstname}} {{item.name.lastname}} </h2> <br>
+    {{item.email}}
+
+  </mat-card-content>
+
+</mat-card>
+
+

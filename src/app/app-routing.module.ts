@@ -14,6 +14,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { CatFactComponent } from './components/cat-fact/cat-fact.component';
 import { AgePredictionComponent } from './components/age-prediction/age-prediction.component';
 import { CartsComponent } from './components/carts/carts.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -39,6 +40,8 @@ import { AgePredictionServiceModule } from './services/age-prediction.service-mo
 import { AgePredictionComponentModule } from './components/age-prediction/age-prediction.component-module';
 import { CartsComponentModule } from './components/carts/carts.component-module';
 import { CartServiceModule } from './services/cart.service-module';
+import { UserDetailsComponentModule } from './components/user-details/user-details.component-module';
+import { UserDetailsServiceModule } from './services/user-details.service-module';
 
 @NgModule({
   imports: [
@@ -56,7 +59,8 @@ import { CartServiceModule } from './services/cart.service-module';
       { path: 'product/:id', component: ProductDetailComponent },
       { path: 'cat-facts', component: CatFactComponent },
       { path: 'age/:name', component: AgePredictionComponent },
-      { path: 'cart/:id', component: CartsComponent }
+      { path: 'cart/:id', component: CartsComponent },
+      { path: 'user/:id', component: UserDetailsComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -82,7 +86,9 @@ import { CartServiceModule } from './services/cart.service-module';
     AgePredictionServiceModule,
     AgePredictionComponentModule,
     CartsComponentModule,
-    CartServiceModule
+    CartServiceModule,
+    UserDetailsComponentModule,
+    UserDetailsServiceModule
   ],
   exports: [RouterModule],
 })
