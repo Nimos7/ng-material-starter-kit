@@ -80,6 +80,10 @@
     "title-description": {
       "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
       "content": "<h1>$title$</h1>\n<p>$description$</p>"
+    },
+    "custom-template": {
+      "container": "<div *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</div>",
+      "content": "<h1 style=\"  text-align:center;\">$title$</h1>\n<h3 style=\"  text-align:center;\">$description$</h3>\n <h2 style=\"  text-align:center;\"> $text$ </h2>\n <h1 style=\" text-align: center; font-size: xxx-large;\" >$TEXT$ </h1>"
     }
   }
 }

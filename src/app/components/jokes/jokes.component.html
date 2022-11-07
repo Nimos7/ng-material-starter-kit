@@ -1,0 +1,13 @@
+<div *ngIf="data$ | async as item" class="p-3 mb-2 bg-dark text-white">
+  <h1 style="  text-align:center;  "><b> Random joke for everyone!</b></h1>
+  <h3 style="text-align:center;"> Joke <b>#{{item.id}}</b> &nbsp; &nbsp; &nbsp; &nbsp; Type:<b>{{item.type}}</b></h3>
+  <h2 style="text-align:center;">{{item.setup}} </h2>
+  <h1 style=" font-size: xxx-large;  text-align: center "> {{item.punchline}}</h1>
+  <div style="text-align:center">Click button for another one!
+    <button type="button" class="btn btn-light  " onClick="window.location.reload()">
+      CLICK ME
+    </button>
+  </div>
+
+
+</div>

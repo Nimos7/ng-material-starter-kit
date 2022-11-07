@@ -15,3 +15,4 @@ export class CatFactComponent {
   constructor(private _catFactService: CatFactService) {
   }
 }
+
