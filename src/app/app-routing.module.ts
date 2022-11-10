@@ -18,6 +18,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { JokesComponent } from './components/jokes/jokes.component';
 import { FilteredProductListComponent } from './components/filtered-product-list/filtered-product-list.component';
 import { FilteredProductListSubjectComponent } from './components/filtered-product-list-subject/filtered-product-list-subject.component';
+import { SortedListComponent } from './components/sorted-list/sorted-list.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -50,6 +51,7 @@ import { JokesServiceModule } from './services/jokes.service-module';
 import { FilteredProductListComponentModule } from './components/filtered-product-list/filtered-product-list.component-module';
 import { CategoriesOgServiceModule } from './services/categories-og.service-module';
 import { FilteredProductListSubjectComponentModule } from './components/filtered-product-list-subject/filtered-product-list-subject.component-module';
+import { SortedListComponentModule } from './components/sorted-list/sorted-list.component-module';
 
 @NgModule({
   imports: [
@@ -71,7 +73,8 @@ import { FilteredProductListSubjectComponentModule } from './components/filtered
       { path: 'user/:id', component: UserDetailsComponent },
       { path: 'jokes', component: JokesComponent },
       { path: 'products/:category', component: FilteredProductListComponent },
-      { path: 'subject-list', component: FilteredProductListSubjectComponent }
+      { path: 'subject-list', component: FilteredProductListSubjectComponent },
+      { path: 'sorting-list', component: SortedListComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -104,7 +107,8 @@ import { FilteredProductListSubjectComponentModule } from './components/filtered
     JokesServiceModule,
     FilteredProductListComponentModule,
     CategoriesOgServiceModule,
-    FilteredProductListSubjectComponentModule
+    FilteredProductListSubjectComponentModule,
+    SortedListComponentModule
   ],
   exports: [RouterModule],
 })
