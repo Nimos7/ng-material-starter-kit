@@ -1,0 +1,35 @@
+<h1> SORT EMPLOYEES</h1>
+<mat-card>
+  <mat-card-title>By salary</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list" fxLayout="row">
+      <mat-list-item role="listitem" *ngFor="let item of orders | async" (click)="sort(item)">
+        {{item}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>By age</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list" fxLayout="row">
+      <mat-list-item role="listitem" *ngFor="let item of orders | async" (click)="sort(item)">
+        {{item}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+  <mat-card-title>Employee list</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of employee$ | async">
+        {{item.id}}. {{item.employee_Name}}  Age:{{item.employee_Age}} Salary:{{item.employee_Salary}}$
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+

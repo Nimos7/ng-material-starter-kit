@@ -19,6 +19,7 @@ import { JokesComponent } from './components/jokes/jokes.component';
 import { FilteredProductListComponent } from './components/filtered-product-list/filtered-product-list.component';
 import { FilteredProductListSubjectComponent } from './components/filtered-product-list-subject/filtered-product-list-subject.component';
 import { SortedListComponent } from './components/sorted-list/sorted-list.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -52,6 +53,7 @@ import { FilteredProductListComponentModule } from './components/filtered-produc
 import { CategoriesOgServiceModule } from './services/categories-og.service-module';
 import { FilteredProductListSubjectComponentModule } from './components/filtered-product-list-subject/filtered-product-list-subject.component-module';
 import { SortedListComponentModule } from './components/sorted-list/sorted-list.component-module';
+import { EmployeeListComponentModule } from './components/employee-list/employee-list.component-module';
 
 @NgModule({
   imports: [
@@ -74,7 +76,9 @@ import { SortedListComponentModule } from './components/sorted-list/sorted-list.
       { path: 'jokes', component: JokesComponent },
       { path: 'products/:category', component: FilteredProductListComponent },
       { path: 'subject-list', component: FilteredProductListSubjectComponent },
-      { path: 'sorting-list', component: SortedListComponent }
+      { path: 'sorting-list', component: SortedListComponent },
+      { path: 'employee-list', component: EmployeeListComponent },
+      { path: 'refresh-products', component: ProductListComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -108,7 +112,8 @@ import { SortedListComponentModule } from './components/sorted-list/sorted-list.
     FilteredProductListComponentModule,
     CategoriesOgServiceModule,
     FilteredProductListSubjectComponentModule,
-    SortedListComponentModule
+    SortedListComponentModule,
+    EmployeeListComponentModule
   ],
   exports: [RouterModule],
 })

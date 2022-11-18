@@ -17,9 +17,10 @@ export class FilteredProductListComponent {
   readonly products$: Observable<ProductModel[]> = combineLatest([
     this._productService.getAll(),
     this._activatedRoute.params
-  ]).pipe(map(([products, params]: [ProductModel[], Params]) => {
-    return products.filter((product: ProductModel) => product.category === params ['category']);
-  }))
+  ]).pipe(
+    map(([products, params]: [ProductModel[], Params]) => {
+      return products.filter((product: ProductModel) => product.category === params ['category']);
+    }))
 
   constructor(private _categoriesOgService: CategoriesOgService, private _productService: ProductService, private _activatedRoute: ActivatedRoute) {
   }

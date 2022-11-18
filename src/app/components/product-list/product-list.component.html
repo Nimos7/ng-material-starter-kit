@@ -1,14 +1,14 @@
 <a routerLink="">back</a>
 
-<mat-card >
-  <mat-card-title>Product Lists </mat-card-title>
+<mat-card>
+  <mat-card-title>Product Lists</mat-card-title>
 
   <mat-card-content>
     <mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let item of list$ | async">
+      <mat-list-item role="listitem" *ngFor="let item of refreshedList$ | async">
 
-      {{item.id}}. {{item.title}} {{item.price}}$
-
+        {{item.id}}. {{item.title}} {{item.price}}$
+        <button mat-raised-button color="primary" (click)="delete(item.id)"> Remove</button>
 
 
       </mat-list-item>

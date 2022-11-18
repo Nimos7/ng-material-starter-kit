@@ -20,11 +20,5 @@ export class EmployeeFormComponent {
 
   }
 
-  onEmployeeFormSubmitted(employeeForm: FormGroup): void {
-    this._employeeService.create({
-      name: employeeForm.get('name')?.value,
-      age: employeeForm.get('age')?.value,
-      salary: employeeForm.get('salary')?.value
-    }).subscribe();
-  }
+
 }
