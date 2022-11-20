@@ -5,6 +5,7 @@ import {EmployeeModel} from '../models/employee.model';
 import {map} from "rxjs/operators";
 import {ApiResponse} from "./api.response";
 import {EmployeeResponse} from "./employee.response";
+import {ProductModel} from "../models/product.model";
 
 @Injectable()
 export class EmployeeService {
@@ -33,5 +34,9 @@ export class EmployeeService {
 
   create(id: EmployeeModel): Observable<void> {
     return this._httpClient.post('https://dummy.restapiexample.com/api/v1/create', id).pipe(map(_ => void 0))
+  }
+
+  delete(id: number): Observable<EmployeeModel> {
+    return this._httpClient.delete<EmployeeModel>('https://dummy.restapiexample.com/api/v1/delete/' + id)
   }
 }

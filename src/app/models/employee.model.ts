@@ -1,7 +1,7 @@
 export interface EmployeeModel {
-  readonly id: string;
+  readonly id: number;
   readonly employee_Name: string;
-  readonly employee_Salary: string;
-  readonly employee_Age: string;
+  readonly employee_Salary: number;
+  readonly employee_Age: number;
   readonly profile_Image: string;
 }

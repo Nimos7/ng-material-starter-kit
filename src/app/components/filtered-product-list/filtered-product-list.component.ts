@@ -19,7 +19,7 @@ export class FilteredProductListComponent {
     this._activatedRoute.params
   ]).pipe(
     map(([products, params]: [ProductModel[], Params]) => {
-      return products.filter((product: ProductModel) => product.category === params ['category']);
+      return products.filter((product) => product.category === params ['category']);
     }))
 
   constructor(private _categoriesOgService: CategoriesOgService, private _productService: ProductService, private _activatedRoute: ActivatedRoute) {

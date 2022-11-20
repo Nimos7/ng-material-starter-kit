@@ -20,6 +20,8 @@ import { FilteredProductListComponent } from './components/filtered-product-list
 import { FilteredProductListSubjectComponent } from './components/filtered-product-list-subject/filtered-product-list-subject.component';
 import { SortedListComponent } from './components/sorted-list/sorted-list.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { RefreshEmployeesListComponent } from './components/refresh-employees-list/refresh-employees-list.component';
+import { ProductMasterListComponent } from './components/product-master-list/product-master-list.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -54,6 +56,8 @@ import { CategoriesOgServiceModule } from './services/categories-og.service-modu
 import { FilteredProductListSubjectComponentModule } from './components/filtered-product-list-subject/filtered-product-list-subject.component-module';
 import { SortedListComponentModule } from './components/sorted-list/sorted-list.component-module';
 import { EmployeeListComponentModule } from './components/employee-list/employee-list.component-module';
+import { RefreshEmployeesListComponentModule } from './components/refresh-employees-list/refresh-employees-list.component-module';
+import { ProductMasterListComponentModule } from './components/product-master-list/product-master-list.component-module';
 
 @NgModule({
   imports: [
@@ -78,7 +82,9 @@ import { EmployeeListComponentModule } from './components/employee-list/employee
       { path: 'subject-list', component: FilteredProductListSubjectComponent },
       { path: 'sorting-list', component: SortedListComponent },
       { path: 'employee-list', component: EmployeeListComponent },
-      { path: 'refresh-products', component: ProductListComponent }
+      { path: 'refresh-products', component: ProductListComponent },
+      { path: 'refresh-employees', component: RefreshEmployeesListComponent },
+      { path: 'products-master-details', component: ProductMasterListComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -113,7 +119,9 @@ import { EmployeeListComponentModule } from './components/employee-list/employee
     CategoriesOgServiceModule,
     FilteredProductListSubjectComponentModule,
     SortedListComponentModule,
-    EmployeeListComponentModule
+    EmployeeListComponentModule,
+    RefreshEmployeesListComponentModule,
+    ProductMasterListComponentModule
   ],
   exports: [RouterModule],
 })
