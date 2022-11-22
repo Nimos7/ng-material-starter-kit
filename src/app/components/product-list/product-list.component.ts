@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {switchMap} from 'rxjs/operators';
 import {ProductModel} from '../../models/product.model';
 import {ProductService} from '../../services/product.service';
-import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-product-list',
@@ -25,4 +25,6 @@ export class ProductListComponent {
   delete(id: string): void {
     this._productService.delete(id).subscribe(() => this._refreshSubject.next());
   }
+
+
 }

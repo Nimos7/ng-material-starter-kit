@@ -18,7 +18,7 @@ export class FilteredProductListComponent {
     this._productService.getAll(),
     this._activatedRoute.params
   ]).pipe(
-    map(([products, params]: [ProductModel[], Params]) => {
+    map(([products, params]) => {
       return products.filter((product) => product.category === params ['category']);
     }))
 

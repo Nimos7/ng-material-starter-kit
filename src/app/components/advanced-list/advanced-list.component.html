@@ -1,0 +1,23 @@
+<h1>New Year Collection</h1>
+<h2>Choose your category</h2>
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+    <mat-selection-list role="list">
+      <mat-list-option role="listitem" *ngFor="let item of categories$ | async">{{item}}</mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of list$ | async">
+        <img src="">  {{item.title}} {{item.price}}$
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+

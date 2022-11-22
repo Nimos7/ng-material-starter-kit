@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, take} from 'rxjs';
+import {Observable} from 'rxjs';
+import {map, take} from 'rxjs/operators';
 import {EmployeeModel} from '../models/employee.model';
-import {map} from "rxjs/operators";
-import {ApiResponse} from "./api.response";
-import {EmployeeResponse} from "./employee.response";
-import {ProductModel} from "../models/product.model";
+import {ApiResponse} from './api.response';
+import {EmployeeResponse} from './employee.response';
 
 @Injectable()
 export class EmployeeService {
@@ -16,8 +15,8 @@ export class EmployeeService {
     return this._httpClient.get<ApiResponse<EmployeeResponse[]>>
     ('https://dummy.restapiexample.com/api/v1/employees').pipe(
       take(1),
-      map((response: ApiResponse<EmployeeResponse[]>): EmployeeModel[] => {
-        return response.data.map((employeeResponse: EmployeeResponse) => {
+      map((response) => {
+        return response.data.map((employeeResponse) => {
           return {
             employee_Name: employeeResponse.employee_name,
             employee_Salary: employeeResponse.employee_salary,
@@ -38,5 +37,9 @@ export class EmployeeService {
 
   delete(id: number): Observable<EmployeeModel> {
     return this._httpClient.delete<EmployeeModel>('https://dummy.restapiexample.com/api/v1/delete/' + id)
+  }
+
+  getOne(id: string): Observable<EmployeeModel> {
+    return this._httpClient.get<EmployeeModel>(`https://dummy.restapiexample.com/api/v1/employee/${id}`);
   }
 }

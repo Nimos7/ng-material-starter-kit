@@ -16,15 +16,14 @@ import {map} from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilteredProductListSubjectComponent {
-  readonly categories$: Observable<string[]> =
-    this._categoriesOgService.getAll();
+  readonly categories$: Observable<string[]> = this._categoriesOgService.getAll();
   private _categorySubject: Subject<string> = new Subject<string>();
   public category$: Observable<string> = this._categorySubject.asObservable();
   readonly products$: Observable<ProductModel[]> = combineLatest([
     this._productService.getAll(),
     this.category$,
   ]).pipe(
-    map(([products, category]: [ProductModel[], string]) => {
+    map(([products, category]) => {
       return products.filter((product) => product.category === category);
     })
   );

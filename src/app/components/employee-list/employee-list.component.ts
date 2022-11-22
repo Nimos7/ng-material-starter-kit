@@ -69,7 +69,7 @@ export class EmployeeListComponent {
   constructor(private _employeeService: EmployeeService) {
   }
 
-  sort(order: string): void {
+  sortSalary(order: string): void {
     this._orderSubject.next(order);
   }
 
