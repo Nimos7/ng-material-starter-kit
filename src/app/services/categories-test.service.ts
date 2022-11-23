@@ -2,13 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CategoriesTestModel} from '../models/categories-test.model';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class CategoriesTestService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  getAll(): Observable<CategoriesTestModel[]> {
-    return this._httpClient.get<CategoriesTestModel[]>('https://fakestoreapi.com/products/categories');
+  getAll(): Observable<string[]> {
+    return this._httpClient
+      .get<string[]>(
+        'https://fakestoreapi.com/products/categories'
+      )
+
   }
 }

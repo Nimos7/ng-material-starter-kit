@@ -4,12 +4,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Observable, Subject, combineLatest} from 'rxjs';
+import {Observable, Subject, combineLatest, of, switchMap, BehaviorSubject} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 import {CategoriesTestModel} from '../../models/categories-test.model';
 import {ProductTestModel} from '../../models/product-test.model';
 import {DetailsTestService} from '../../services/details-test.service';
 import {CategoriesTestService} from '../../services/categories-test.service';
+import {ProductModel} from "../../models/product.model";
 
 @Component({
   selector: 'app-advanced-list',
@@ -18,19 +19,39 @@ import {CategoriesTestService} from '../../services/categories-test.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdvancedListComponent {
-  readonly categories$: Observable<CategoriesTestModel[]> =
-    this._categoriesTestService.getAll();
-
+  readonly categories$: Observable<string[]> = this._categoriesTestService
+    .getAll()
+    .pipe(
+      map((categories) => {
+        return categories.filter(
+          (category) =>
+            category === "men's clothing" || category === "women's clothing"
+        );
+      })
+    );
   private _categorySubject: Subject<string> = new Subject<string>();
-  public category$: Observable<string> = this._categorySubject.asObservable();
-  readonly list$: Observable<ProductTestModel[]> = combineLatest([
-    this._detailsTestService.getAll(),
-    this.category$,
+
+
+  private _orderSubject: BehaviorSubject<string> = new BehaviorSubject<string>('Sort  price UP');
+
+  public order$: Observable<string> = this._orderSubject.asObservable();
+
+  readonly productList$: Observable<ProductTestModel[]> = combineLatest([
+    this._categorySubject.asObservable(),
+    this._orderSubject.asObservable()
   ]).pipe(
-    map(([products, category]) => {
-      return products.filter((product) => product.category === category);
-    })
+    switchMap(([category, order]) => this._detailsTestService.getAll().pipe(
+      map((products) => products.filter((product) => product.category === category))
+      , map((list) => {
+        return list.sort((a, b) => {
+          if (a.price > b.price) return order === 'Sort  price UP' ? 1 : -1;
+          if (a.price < b.price) return order === 'Sort  price DOWN' ? 1 : -1;
+          return 0
+        })
+      }))
+    )
   );
+  public orders: Observable<string[]> = of(['Sort  price UP', 'Sort  price DOWN']);
 
   constructor(
     private _detailsTestService: DetailsTestService,
@@ -38,4 +59,17 @@ export class AdvancedListComponent {
     private _activatedRoute: ActivatedRoute
   ) {
   }
+
+  selectCategory(category: string): void {
+    this._categorySubject.next(category);
+  }
+
+  sortByPrice(order: string): void {
+    this._orderSubject.next(order)
+  }
+
+  delete(id: number): void {
+    this._detailsTestService.delete(id).subscribe()
+  }
 }
+

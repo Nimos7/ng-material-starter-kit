@@ -15,4 +15,9 @@ export class DetailsTestService {
   getOne(id: number): Observable<ProductTestModel> {
     return this._httpClient.get<ProductTestModel>(`https://fakestoreapi.com/products/${id}`);
   }
+
+
+  delete(id: number): Observable<ProductTestModel> {
+    return this._httpClient.get<ProductTestModel>(`https://fakestoreapi.com/products/${id}`);
+  }
 }

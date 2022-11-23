@@ -3,21 +3,46 @@
 <mat-card>
   <mat-card-title></mat-card-title>
   <mat-card-content>
-    <mat-selection-list role="list">
-      <mat-list-option role="listitem" *ngFor="let item of categories$ | async">{{item}}</mat-list-option>
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option
+        role="listoption"
+        [value]="item"
+        *ngFor="let item of categories$ | async"
+        (click)="selectCategory(item)"
+      >
+        {{ item }}
+
+
+      </mat-list-option>
+      <mat-list-item
+        role="listitem"
+        *ngFor="let item of orders | async"
+        (click)="sortByPrice(item)"
+      >
+        {{ item }}
+
+
+        <mat-icon>unfold_more</mat-icon>
+      </mat-list-item>
+      <span class="material-symbols-outlined">
+</span>
     </mat-selection-list>
   </mat-card-content>
 </mat-card>
-
 <mat-card>
-  <mat-card-title></mat-card-title>
-  <mat-card-content>
+  <mat-card-title>Clothes</mat-card-title>
+  <mat-card-content></mat-card-content>
+  <mat-list role="list" class="service-list">
+    <mat-list-item role="listitem" style="padding:5%" *ngFor="let item of productList$ | async">
+      <img src="{{item.image}}" width="80" height="130"> {{ item.title }} <br>
+      {{ item.price }}$
 
-    <mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let item of list$ | async">
-        <img src="">  {{item.title}} {{item.price}}$
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
+      <br>
+      <button class="btn btn-primary  float-left  " style="display:block" (click)="delete(item.id)">Remove
+      </button>
+
+
+    </mat-list-item>
+  </mat-list>
 </mat-card>
 
