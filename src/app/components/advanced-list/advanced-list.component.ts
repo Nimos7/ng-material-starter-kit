@@ -40,12 +40,12 @@ export class AdvancedListComponent {
     this._categorySubject.asObservable(),
     this._orderSubject.asObservable()
   ]).pipe(
-    switchMap(([category, order]) => this._detailsTestService.getAll().pipe(
+    switchMap(([category, age]) => this._detailsTestService.getAll().pipe(
       map((products) => products.filter((product) => product.category === category))
       , map((list) => {
         return list.sort((a, b) => {
-          if (a.price > b.price) return order === 'Sort  price UP' ? 1 : -1;
-          if (a.price < b.price) return order === 'Sort  price DOWN' ? 1 : -1;
+          if (a.price > b.price) return age === 'Sort  price UP' ? 1 : -1;
+          if (a.price < b.price) return age === 'Sort  price DOWN' ? 1 : -1;
           return 0
         })
       }))

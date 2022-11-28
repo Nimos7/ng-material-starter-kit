@@ -1,15 +1,27 @@
-<div > </div>
-
-<a routerLink="">back</a>
 <mat-card>
   <mat-card-title>
-Categories list
+    Categories list
   </mat-card-title>
   <mat-card-content>
-    <section class="example-section" >
-      <mat-checkbox class="example-margin" *ngFor="let categories of categories$| async">  {{categories}}</mat-checkbox>
+    <section class="example-section" *ngIf="categories$| async as list; else loading">
+      <ng-container *ngIf="list.length> 0; else emptyState">
+        <mat-checkbox class="example-margin" *ngFor="let categories of categories$| async">
+          {{categories}}</mat-checkbox>
 
-
-</section>
+      </ng-container>
+    </section>
+    <ng-template #emptyState>
+      Oops! There is no data!
+    </ng-template>
+    <ng-template #loading>
+      <mat-progress-spinner
+        [color]="'primary'"
+        [mode]="'indeterminate'"
+        [value]="50"
+      >
+      </mat-progress-spinner>
+    </ng-template>
   </mat-card-content>
 </mat-card>
+
+

@@ -14,8 +14,7 @@ import {switchMap, take} from "rxjs/operators";
 export class EmployeesMasterDetailsComponent {
   readonly list$: Observable<EmployeeModel[]> = this._employeeService.getAll();
   private _selectedEmployeeIdSubject: Subject<string> = new Subject<string>();
-  public selectedEmployeeId$: Observable<string> =
-    this._selectedEmployeeIdSubject.asObservable();
+  public selectedEmployeeId$: Observable<string> = this._selectedEmployeeIdSubject.asObservable();
   readonly details$: Observable<EmployeeModel> = this.selectedEmployeeId$.pipe(
     take(1),
     switchMap((data) => this._employeeService.getOne(data))
@@ -26,6 +25,6 @@ export class EmployeesMasterDetailsComponent {
 
 
   selectEmployee(id: number): void {
-    this._selectedEmployeeIdSubject.next(String(id));
+    this._selectedEmployeeIdSubject.next(String(id))
   }
 }

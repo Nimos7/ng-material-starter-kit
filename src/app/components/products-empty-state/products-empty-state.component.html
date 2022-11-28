@@ -1,16 +1,16 @@
 <mat-card>
-  <mat-card-title>Crypto Chips</mat-card-title>
+  <mat-card-title>Product list</mat-card-title>
   <mat-card-content>
-    <mat-chip-list role="example-chip" *ngIf="crypto$  | async as list; else loading">
+    <mat-list role="list" *ngIf="list$  | async as list; else loading">
       <ng-container *ngIf="list.length > 0; else emptyState">
-        <mat-chip role="example-box" *ngFor="let item of crypto$ | async">
-          {{item.symbol}}
-        </mat-chip>
+        <mat-list-item role="listitem" *ngFor="let item of list$ | async">
+          {{item.title}}
+        </mat-list-item>
       </ng-container>
       <ng-template #emptyState>
         Oops! There is no data!
       </ng-template>
-    </mat-chip-list>
+    </mat-list>
     <ng-template #loading>
       <mat-progress-spinner
         [color]="'primary'"

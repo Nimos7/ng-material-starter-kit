@@ -1,23 +1,30 @@
-<a routerLink="">back</a>
-
 <mat-card>
   <mat-card-title>
-Public Holidays
+    Public Holidays
   </mat-card-title>
   <mat-card-content>
-
-
-
-    <mat-form-field appearance="fill">
-      <mat-label>select holidays</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let holidays of holidays$ | async" [value]="holidays.valueOf" >
-          {{holidays.localName}}
-        </mat-option>
-      </mat-select>
+    <mat-form-field appearance="fill" *ngIf="holidays$| async as list; else loading">
+      <ng-container *ngIf="list.length>0; else emptyState">
+        <mat-label>select holidays</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let holidays of holidays$ | async" [value]="holidays.valueOf">
+            {{holidays.localName}}
+          </mat-option>
+        </mat-select>
+      </ng-container>
+      <ng-template #emptyState>
+        Oops! There is no data!
+      </ng-template>
     </mat-form-field>
-
-
-
+    <ng-template #loading>
+      <mat-progress-spinner
+        [color]="'primary'"
+        [mode]="'indeterminate'"
+        [value]="50"
+      >
+      </mat-progress-spinner>
+    </ng-template>
   </mat-card-content>
 </mat-card>
+
+
