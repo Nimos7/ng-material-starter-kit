@@ -28,6 +28,7 @@ import { DetailsTestComponent } from './components/details-test/details-test.com
 import { DetailsDetailsComponent } from './components/details-details/details-details.component';
 import { AdvancedListComponent } from './components/advanced-list/advanced-list.component';
 import { ProductsEmptyStateComponent } from './components/products-empty-state/products-empty-state.component';
+import { CreateUserWithRoleComponent } from './components/create-user-with-role/create-user-with-role.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -72,6 +73,9 @@ import { DetailsDetailsComponentModule } from './components/details-details/deta
 import { AdvancedListComponentModule } from './components/advanced-list/advanced-list.component-module';
 import { CategoriesTestServiceModule } from './services/categories-test.service-module';
 import { ProductsEmptyStateComponentModule } from './components/products-empty-state/products-empty-state.component-module';
+import { CreateUserWithRoleComponentModule } from './components/create-user-with-role/create-user-with-role.component-module';
+import { RoleServiceModule } from './services/role.service-module';
+import { UserRoleServiceModule } from './services/user-role.service-module';
 
 @NgModule({
   imports: [
@@ -104,7 +108,8 @@ import { ProductsEmptyStateComponentModule } from './components/products-empty-s
       { path: 'test-products', component: DetailsTestComponent },
       { path: 'test-products/:id', component: DetailsDetailsComponent },
       { path: 'advanced-list', component: AdvancedListComponent },
-      { path: 'products-empty-state', component: ProductsEmptyStateComponent }
+      { path: 'products-empty-state', component: ProductsEmptyStateComponent },
+      { path: 'create-user-with-role', component: CreateUserWithRoleComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -149,7 +154,10 @@ import { ProductsEmptyStateComponentModule } from './components/products-empty-s
     DetailsDetailsComponentModule,
     AdvancedListComponentModule,
     CategoriesTestServiceModule,
-    ProductsEmptyStateComponentModule
+    ProductsEmptyStateComponentModule,
+    CreateUserWithRoleComponentModule,
+    RoleServiceModule,
+    UserRoleServiceModule
   ],
   exports: [RouterModule],
 })
