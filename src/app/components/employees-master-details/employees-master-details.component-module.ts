@@ -10,9 +10,6 @@ import {AsyncPipe, CommonModule, NgForOf, NgIf} from "@angular/common";
     MatGridListModule,
     MatListModule,
     MatButtonModule,
-    AsyncPipe,
-    NgForOf,
-    NgIf,
     CommonModule
   ],
   declarations: [EmployeesMasterDetailsComponent],

@@ -10,7 +10,7 @@ import {CatFactService} from '../../services/cat-fact.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatFactComponent {
-  readonly facts$: Observable<CatFactModel> = this._catFactService.getOne('fact');
+  readonly facts$: Observable<CatFactModel> = this._catFactService.getAll();
 
   constructor(private _catFactService: CatFactService) {
   }

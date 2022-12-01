@@ -3,11 +3,13 @@
     <mat-list role="list">
       <mat-list-item role="listitem" *ngFor="let item of list$ | async">
         {{item.symbol}}
-        <button mat-button color="primary"> Show price change</button>
+        <button mat-button color="primary" (click)="showDetails(item.priceChange)"> Show details</button>
+        -
+
       </mat-list-item>
     </mat-list>
   </mat-grid-tile>
   <mat-grid-tile>
-    <ng-container></ng-container>
+    <div *ngIf="details$ | async as item"> {{item}}$</div>
   </mat-grid-tile>
 </mat-grid-list>

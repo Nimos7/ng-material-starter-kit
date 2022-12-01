@@ -29,6 +29,8 @@ import { DetailsDetailsComponent } from './components/details-details/details-de
 import { AdvancedListComponent } from './components/advanced-list/advanced-list.component';
 import { ProductsEmptyStateComponent } from './components/products-empty-state/products-empty-state.component';
 import { CreateUserWithRoleComponent } from './components/create-user-with-role/create-user-with-role.component';
+import { CreateUserWithRoleRadioButtonsComponent } from './components/create-user-with-role-radio-buttons/create-user-with-role-radio-buttons.component';
+import { CreateJobComponent } from './components/create-job/create-job.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -76,6 +78,9 @@ import { ProductsEmptyStateComponentModule } from './components/products-empty-s
 import { CreateUserWithRoleComponentModule } from './components/create-user-with-role/create-user-with-role.component-module';
 import { RoleServiceModule } from './services/role.service-module';
 import { UserRoleServiceModule } from './services/user-role.service-module';
+import { CreateUserWithRoleRadioButtonsComponentModule } from './components/create-user-with-role-radio-buttons/create-user-with-role-radio-buttons.component-module';
+import { CreateJobComponentModule } from './components/create-job/create-job.component-module';
+import { JobServiceModule } from './services/job.service-module';
 
 @NgModule({
   imports: [
@@ -109,7 +114,9 @@ import { UserRoleServiceModule } from './services/user-role.service-module';
       { path: 'test-products/:id', component: DetailsDetailsComponent },
       { path: 'advanced-list', component: AdvancedListComponent },
       { path: 'products-empty-state', component: ProductsEmptyStateComponent },
-      { path: 'create-user-with-role', component: CreateUserWithRoleComponent }
+      { path: 'create-user-with-role', component: CreateUserWithRoleComponent },
+      { path: 'create-user-with-role-buttons', component: CreateUserWithRoleRadioButtonsComponent },
+      { path: 'create-job', component: CreateJobComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -157,9 +164,16 @@ import { UserRoleServiceModule } from './services/user-role.service-module';
     ProductsEmptyStateComponentModule,
     CreateUserWithRoleComponentModule,
     RoleServiceModule,
-    UserRoleServiceModule
+    UserRoleServiceModule,
+    CreateUserWithRoleRadioButtonsComponentModule,
+    CreateJobComponentModule,
+    JobServiceModule
   ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
 }
+
+
+//<mat-radio-button *ngFor="let item of roles$| async" [value]="item.id">
+//             {{item.role}}

@@ -5,7 +5,7 @@
       <mat-list-item role="listitem" *ngFor="let item of list$ | async">
         {{item.title}} {{item.price}}$
 
-        <button><a routerLink="{{item.id}}">Details </a></button>
+        <button routerLink="{{item.id}}">Details</button>
 
       </mat-list-item>
     </mat-list>

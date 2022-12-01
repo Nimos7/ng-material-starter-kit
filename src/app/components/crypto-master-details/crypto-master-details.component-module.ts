@@ -1,17 +1,20 @@
 import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 import {CryptoMasterDetailsComponent} from './crypto-master-details.component';
 import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
-import {AsyncPipe, NgForOf} from "@angular/common";
-import {MatButtonModule} from "@angular/material/button";
+
 
 @NgModule({
   imports: [
+    MatButtonModule,
+    MatCardModule,
+    CommonModule,
     MatListModule,
-    MatGridListModule,
-    NgForOf,
-    AsyncPipe,
-    MatButtonModule
+    MatGridListModule
   ],
   declarations: [CryptoMasterDetailsComponent],
   providers: [],

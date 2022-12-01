@@ -7,7 +7,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {ProductListComponentModule} from "./components/product-list/product-list.component-module";
 import {HomePageComponentModule} from "./components/home-page/home-page.component-module";
-import {JokesComponentModule} from "./components/jokes/jokes.component-module";
 
 
 @NgModule({

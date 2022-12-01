@@ -8,6 +8,9 @@
     </mat-list>
   </mat-grid-tile>
   <mat-grid-tile>
-    <ng-container *ngIf="details$| async as details">{{details.employee_Salary}}$</ng-container>
+    <ng-container *ngIf="details$| async as details">{{details.data.employee_salary}}$</ng-container>
   </mat-grid-tile>
 </mat-grid-list>
+
+
+
