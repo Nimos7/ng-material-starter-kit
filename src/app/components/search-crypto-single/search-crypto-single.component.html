@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label> Select Crypto</mat-label>
+      <input matInput type="text" [formControl]="autocomplete" [matAutocomplete]="auto">
+    </mat-form-field>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of cryptos$| async" [value]="option.symbol">
+        {{option.symbol}}
+      </mat-option>
+    </mat-autocomplete>
+
+
+  </mat-card-content>
+</mat-card>

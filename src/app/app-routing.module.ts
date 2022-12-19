@@ -31,6 +31,10 @@ import { ProductsEmptyStateComponent } from './components/products-empty-state/p
 import { CreateUserWithRoleComponent } from './components/create-user-with-role/create-user-with-role.component';
 import { CreateUserWithRoleRadioButtonsComponent } from './components/create-user-with-role-radio-buttons/create-user-with-role-radio-buttons.component';
 import { CreateJobComponent } from './components/create-job/create-job.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
+import { SearchUniversitiesComponent } from './components/search-universities/search-universities.component';
+import { SearchCryptoSingleComponent } from './components/search-crypto-single/search-crypto-single.component';
+import { PaginationSearchFormComponent } from './components/pagination-search-form/pagination-search-form.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { HomePageComponentModule } from './components/home-page/home-page.component-module';
@@ -81,6 +85,11 @@ import { UserRoleServiceModule } from './services/user-role.service-module';
 import { CreateUserWithRoleRadioButtonsComponentModule } from './components/create-user-with-role-radio-buttons/create-user-with-role-radio-buttons.component-module';
 import { CreateJobComponentModule } from './components/create-job/create-job.component-module';
 import { JobServiceModule } from './services/job.service-module';
+import { ProductSearchComponentModule } from './components/product-search/product-search.component-module';
+import { SearchUniversitiesComponentModule } from './components/search-universities/search-universities.component-module';
+import { UniversityServiceModule } from './services/university.service-module';
+import { SearchCryptoSingleComponentModule } from './components/search-crypto-single/search-crypto-single.component-module';
+import { PaginationSearchFormComponentModule } from './components/pagination-search-form/pagination-search-form.component-module';
 
 @NgModule({
   imports: [
@@ -116,7 +125,11 @@ import { JobServiceModule } from './services/job.service-module';
       { path: 'products-empty-state', component: ProductsEmptyStateComponent },
       { path: 'create-user-with-role', component: CreateUserWithRoleComponent },
       { path: 'create-user-with-role-buttons', component: CreateUserWithRoleRadioButtonsComponent },
-      { path: 'create-job', component: CreateJobComponent }
+      { path: 'create-job', component: CreateJobComponent },
+      { path: 'product-search', component: ProductSearchComponent },
+      { path: 'search-universities', component: SearchUniversitiesComponent },
+      { path: 'search-single-crypto', component: SearchCryptoSingleComponent },
+      { path: 'pagination-search', component: PaginationSearchFormComponent }
     ]),
     ProductListComponentModule,
     ProductServiceModule,
@@ -167,7 +180,12 @@ import { JobServiceModule } from './services/job.service-module';
     UserRoleServiceModule,
     CreateUserWithRoleRadioButtonsComponentModule,
     CreateJobComponentModule,
-    JobServiceModule
+    JobServiceModule,
+    ProductSearchComponentModule,
+    SearchUniversitiesComponentModule,
+    UniversityServiceModule,
+    SearchCryptoSingleComponentModule,
+    PaginationSearchFormComponentModule
   ],
   exports: [RouterModule],
 })

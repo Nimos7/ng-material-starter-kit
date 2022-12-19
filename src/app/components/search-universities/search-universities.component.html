@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Country list</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label> Write a country</mat-label>
+      <input matInput [formControl]="search"/>
+    </mat-form-field>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content *ngIf="universities$ | async as list">
+    <mat-list role="list" *ngIf="list.length > 0; else emptyState ">
+      <mat-list-item role="listitem" *ngFor="let item of universities$ | async">
+        {{item.name}}</mat-list-item>
+
+    </mat-list>
+    <ng-template #emptyStateOpen>
+
+    </ng-template>
+    <ng-template #emptyState>
+      Did not find any universities for this country :(
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+
+

@@ -13,7 +13,7 @@ export class JobService {
     );
   }
 
-  create(id: JobModel): Observable<void> {
+  create(id: Omit<JobModel, 'id'>): Observable<void> {
     return this._httpClient.post<void>('https://636ce2d8ab4814f2b2712854.mockapi.io/job-posts', id);
   }
 }

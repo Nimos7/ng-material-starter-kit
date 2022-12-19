@@ -1,6 +1,6 @@
 <form
-  [formGroup]="registerForm"
-  (ngSubmit)="onRegisterFormSubmitted(registerForm)"
+  [formGroup]="jobForm"
+  (ngSubmit)="onRegisterFormSubmitted(jobForm)"
 >
   <div>
     <mat-form-field appearance="fill"
@@ -15,7 +15,7 @@
         formControlName="title"
         required
       />
-      <mat-error *ngIf="registerForm.get('title')!.invalid"
+      <mat-error *ngIf="jobForm.get('title')!.invalid"
       >title is invalid
       </mat-error
       >
@@ -35,7 +35,7 @@
         formControlName="description"
         required
       />
-      <mat-error *ngIf="registerForm.get('description')!.invalid"
+      <mat-error *ngIf="jobForm.get('description')!.invalid"
       >description is invalid
       </mat-error
       >
@@ -43,9 +43,9 @@
     >
   </div>
   <div>
-    <section class="example-section" formControlName="id">
+    <section class="example-section" formGroupName="JobTagsIds">
 
-      <mat-checkbox class="example-margin" *ngFor="let item of tags$| async">
+      <mat-checkbox class="example-margin" *ngFor="let item of tags$| async" formControlName="{{item.id}}">
         {{item.name}}</mat-checkbox>
 
 
